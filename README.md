@@ -12,7 +12,7 @@ Follow these instructions to get a copy of the project up and running
 ### Setup
 - git clone https://github.com/Joachim-Chuah/CS415
 - cd CS415
-- docker build -t my-nodejs-app .
+### "docker build -t my-nodejs-app ."
 - docker run -p 3000:3000 my-nodejs-app
 
 ### Access API documentation
