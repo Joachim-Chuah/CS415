@@ -31,6 +31,33 @@ app.get('/', (req, res) => {
     res.send('Welcome to my API! Access /api-docs for the documentation.');
 });
 
+// Get environment variables
+app.get('/config', (req, res) => {
+    // Log the environment variables
+    console.log(process.env);
+    
+    // Send the environment variables as JSON
+    res.json(process.env);
+});
+
+app.get('/fib', (req, res) => {
+    // Directly parse and validate the length from the query parameter
+    const length = parseInt(req.query.length, 10);
+  
+    // Check if length is a valid, positive integer
+    if (isNaN(length) || length < 1) {
+      return res.status(400).send({ error: 'Please provide a valid length as a positive integer.' });
+    }
+  
+    // Generate the Fibonacci sequence up to the requested length
+    const sequence = length === 1 ? [0] : [0, 1];
+    for (let i = 2; i < length; i++) {
+      sequence[i] = sequence[i - 1] + sequence[i - 2];
+    }
+  
+    res.json(sequence);
+  });
+
 // Create a new item
 app.post('/items', (req, res) => {
     const id = generateId();

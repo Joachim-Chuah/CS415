@@ -43,7 +43,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Item created",
+            "description": "Item created.",
             "schema": {
               "$ref": "#/definitions/ItemResponse"
             }
@@ -75,7 +75,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Item updated",
+            "description": "Item updated.",
             "schema": {
               "$ref": "#/definitions/ItemResponse"
             }
@@ -96,7 +96,63 @@
         ],
         "responses": {
           "204": {
-            "description": "Item deleted"
+            "description": "Item deleted."
+          }
+        }
+      }
+    },
+    "/config": {
+      "get": {
+        "summary": "Get environment configuration",
+        "description": "Returns a list of the current environment variables as key-value pairs.",
+        "responses": {
+          "200": {
+            "description": "A list of environment variables.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fib": {
+      "get": {
+        "summary": "Generate Fibonacci sequence",
+        "description": "Generates a Fibonacci sequence up to the specified length.",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "description": "The length of the Fibonacci sequence to generate",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A Fibonacci sequence.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters."
           }
         }
       }
