@@ -18,7 +18,7 @@ jobs:
       run: docker build -t my-nodejs-app .
       
     - name: Run the Docker container
-      run: docker run -p 3000:3000 my-nodejs-app
+      run: docker run -d -p 3000:3000 my-nodejs-app
       
     - name: Test the RESTful service
       run: |
