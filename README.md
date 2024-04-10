@@ -35,8 +35,8 @@ kubectl get pods
 ```
 ### Test config and fib
 ```
-curl "http://localhost:31234/config"
+curl "http://localhost:3000/config"
 ```
 ```
-curl "http://localhost:31234/fib?length=n" where n is the number of fib sequence you want
+curl "http://localhost:3000/fib?length=n" where n is the number of fib sequence you want
 ```
