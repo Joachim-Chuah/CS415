@@ -26,7 +26,7 @@ jobs:
         sleep 5
         
         # Send a GET request to the service
-        response=$(curl "http://localhost:31234/fib?length=5")
+        response=$(curl "http://localhost:3000/fib?length=5")
         
         # Check that the response is "[0,1,1,2,3]"
         if [ "$response" == "[0,1,1,2,3]" ]; then
